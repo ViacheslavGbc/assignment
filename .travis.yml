@@ -11,7 +11,6 @@ before_install:
   - ls -la
   - pwd
   - mkdir dist
-  - cd dist
   - ls -la 
 
 install:
