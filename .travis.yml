@@ -9,3 +9,13 @@ cache: npm
 
 before_install:
   - ls -la
+  - pwd
+  - mkdir dist
+  - cd dist
+  - ls -la 
+
+install:
+  - ls -la
+  # install all the dependencies you need here
+  - npm install
+  - ls -la
