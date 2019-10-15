@@ -8,13 +8,27 @@ node_js:
 cache: npm
 
 before_install:
-  - ls -la
-  - pwd
-  - mkdir dist
-  - ls -la 
+  - "npm config set spin false"
+  - npm i -g now
+#  - ls -la
+#  - pwd
+#  - mkdir dist
+#  - ls -la 
 
 install:
-  - ls -la
+  #- ls -la
   # install all the dependencies you need here
   - npm install
-  - ls -la
+  #- ls -la
+
+script:
+  - npm run build
+  - npm run test
+
+deploy:
+  provider: script
+  script: bash ./scripts/deploy.sh
+  #!/bin/bash 
+  now public --token=$NOW_TOKEN       
+  skip_cleanup: true
+  
