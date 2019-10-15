@@ -28,7 +28,5 @@ script:
 deploy:
   provider: script
   script: bash ./scripts/deploy.sh
-  #!/bin/bash 
-  now public --token=$NOW_TOKEN       
   skip_cleanup: true
   
