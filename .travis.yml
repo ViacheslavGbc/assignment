@@ -1,0 +1,34 @@
+# https://github.com/ViacheslavGbc/assignment
+
+language: node_js
+
+node_js:
+  - "10.9.0"
+
+cache: npm
+
+before_install:
+  - "npm config set spin false"
+  - npm i -g now
+#  - ls -la
+#  - pwd
+#  - mkdir dist
+#  - ls -la 
+
+install:
+  #- ls -la
+  # install all the dependencies you need here
+  - npm install
+  #- ls -la
+
+script:
+  - npm run build
+  - npm run test
+
+deploy:
+  provider: script
+  script: bash ./scripts/deploy.sh
+  #!/bin/bash 
+  now public --token=$NOW_TOKEN       
+  skip_cleanup: true
+  
